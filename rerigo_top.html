@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RERIGO — 制作版モック（トップ）</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4EFE6;--paper-2:#EBE3D5;--ink:#211C16;--ink-soft:#5C5446;--forest:#2E4E32;--forest-deep:#1E3322;--terracotta:#B0512F;--muted:#8C8369;--line:#DCD4C2;--white:#FBF9F4;
+--s30:.67rem;--s40:1rem;--s50:1.5rem;--s60:2.25rem;--s70:3.38rem;--s80:5.06rem;--s90:7.6rem;
+--serif:"Cormorant Garamond",serif;--mincho:"Shippori Mincho",serif;--gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;--maxw:1240px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--gothic);background:var(--paper);color:var(--ink);line-height:1.85;font-weight:300;-webkit-font-smoothing:antialiased;letter-spacing:.02em}
+body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s60)}
+.eyebrow{font-family:var(--serif);font-style:italic;font-size:1.05rem;letter-spacing:.06em;color:var(--terracotta)}.eyebrow.green{color:var(--forest)}
+.h-jp{font-family:var(--mincho);font-weight:500;letter-spacing:.04em;line-height:1.5}
+.sec{padding:var(--s90) 0}.lead{color:var(--ink-soft);font-size:1rem;max-width:42em}
+.btn{display:inline-block;font-weight:500;font-size:.92rem;letter-spacing:.08em;padding:.95em 2.2em;border-radius:2px;transition:.3s}
+.btn-primary{background:var(--terracotta);color:var(--white)}.btn-primary:hover{background:#964226}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#cdbfa6,#a98f6f 60%,#7d6f54);color:#fff8ec;display:flex;align-items:center;justify-content:center;text-align:center}
+.ph::after{content:attr(data-label);font-family:var(--serif);font-style:italic;font-size:.9rem;opacity:.85;padding:1em}
+.ph.green{background:linear-gradient(135deg,#3c5b3f,#23391f)}.ph.terra{background:linear-gradient(135deg,#b86742,#7e3c22)}
+.ph.img{background-size:cover;background-position:center}.ph.img::after{content:""}
+.tag{display:inline-block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.35em .8em;border:1px solid var(--line);border-radius:2px;color:var(--ink-soft)}
+header{position:sticky;top:0;z-index:100;background:rgba(244,239,230,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:var(--s50);max-width:var(--maxw);margin:0 auto;padding:1.1rem var(--s60)}
+.brand{font-family:var(--serif);font-size:1.7rem;font-weight:600;letter-spacing:.22em}
+.nav .menu{display:flex;gap:var(--s50);font-size:.84rem;font-weight:400}.nav .menu a:hover{color:var(--terracotta)}
+.nav .util{margin-left:auto;display:flex;align-items:center;gap:1.1rem;font-size:.84rem}.nav .util .line{color:var(--forest);font-weight:500}
+.nav .shopcta{background:var(--forest);color:var(--white);padding:.55em 1.3em;border-radius:2px;font-weight:500}
+.burger{display:none;margin-left:auto;font-size:1.4rem}
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;color:var(--white);background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,33,25,.1),rgba(18,24,18,.72))}
+.hero-inner{position:relative;max-width:var(--maxw);margin:0 auto;width:100%;padding:0 var(--s60) var(--s80)}
+.hero .eyebrow{color:#e9c9b6}
+.hero h1{font-family:var(--mincho);font-weight:500;font-size:clamp(2.6rem,6vw,4.8rem);line-height:1.28;margin:.3em 0 .1em;letter-spacing:.04em}
+.hero .sub{font-size:1rem;opacity:.92;margin-bottom:var(--s50);max-width:32em}
+.hero .cta-row{display:flex;gap:1rem;flex-wrap:wrap}.hero .btn-ghost{border-color:rgba(255,255,255,.7);color:#fff}.hero .btn-ghost:hover{background:#fff;color:var(--ink)}
+.story{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s80);align-items:center}
+.story .ph{aspect-ratio:4/5;border-radius:2px}
+.story h2{font-family:var(--mincho);font-weight:500;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.5;margin:.4em 0 .7em}
+.voice{margin-top:var(--s50);border-left:2px solid var(--terracotta);padding:.2em 0 .2em var(--s40)}
+.voice p{font-family:var(--mincho);font-style:italic;font-size:1.05rem;line-height:1.9}
+.voice .who{font-size:.8rem;color:var(--muted);letter-spacing:.08em;margin-top:.6em;font-family:var(--gothic)}
+.voice .more{display:inline-block;margin-top:.8em;font-size:.84rem;color:var(--terracotta);border-bottom:1px solid var(--terracotta)}
+.shop{background:var(--paper-2)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s40);margin-bottom:var(--s60);flex-wrap:wrap}
+.sec-head h2{font-family:var(--mincho);font-weight:500;font-size:clamp(1.7rem,3vw,2.4rem)}
+.sec-head .seeall{font-size:.84rem;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:2px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s50)}
+.card .ph{aspect-ratio:3/4;border-radius:2px;margin-bottom:var(--s30)}
+.card .cat{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--terracotta)}
+.card .nm{font-family:var(--mincho);font-size:1.08rem;margin:.15em 0 .25em}.card .pr{font-size:.9rem;color:var(--ink-soft)}
+.card .badge{display:inline-block;margin-top:.4em;font-size:.66rem;letter-spacing:.1em;color:var(--forest);border:1px solid var(--forest);border-radius:2px;padding:.2em .6em}
+.symbol{position:relative;height:60vh;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,rgba(20,15,12,.35),rgba(20,15,12,.55)),linear-gradient(120deg,#7c2d18,#3a1f12)}
+.symbol .play{width:78px;height:78px;border:1px solid rgba(255,255,255,.7);border-radius:50%;display:grid;place-items:center;margin:0 auto var(--s40);font-size:1.3rem}
+.symbol h2{font-family:var(--mincho);font-weight:500;font-size:clamp(1.6rem,3vw,2.3rem)}.symbol p{opacity:.85;font-size:.9rem;margin-top:.6em}
+.materials{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s50);margin-top:var(--s60)}
+.mat .ph{aspect-ratio:1/1;border-radius:2px;margin-bottom:var(--s30)}
+.mat h3{font-family:var(--serif);font-size:1.5rem;font-weight:500}.mat .jp{font-family:var(--mincho);font-size:.95rem;color:var(--ink-soft);margin:.3em 0 .5em}.mat p{font-size:.86rem;color:var(--ink-soft)}
+.usage{background:var(--forest-deep);color:var(--paper)}.usage .eyebrow{color:#e9c9b6}.usage .sec-head h2{color:var(--white)}.usage .seeall{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3)}
+.scenes{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--s40)}.scenes .ph{border-radius:2px;min-height:230px}.scenes .big{grid-row:span 2}
+.collab .sec-head h2 .en{font-family:var(--serif);font-style:italic;color:var(--terracotta);font-size:.7em;margin-left:.4em}
+.collab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s50)}.collab .ph{aspect-ratio:4/3;border-radius:2px;margin-bottom:var(--s30)}
+.collab .co{font-size:.78rem;letter-spacing:.1em;color:var(--muted)}.collab .nm{font-family:var(--mincho);font-size:1.05rem;margin:.2em 0}
+.collab .band{margin-top:var(--s60);background:var(--paper-2);border:1px solid var(--line);border-radius:2px;padding:var(--s50) var(--s60);display:flex;gap:var(--s50);align-items:center;justify-content:space-between;flex-wrap:wrap}
+.collab .band .t{font-family:var(--mincho);font-size:1.25rem}.collab .band .d{font-size:.86rem;color:var(--ink-soft);margin-top:.2em}
+.cases{background:var(--paper-2)}.cases .row{display:flex;gap:var(--s50);overflow-x:auto;padding-bottom:var(--s30)}.cases .item{min-width:230px;flex:1}
+.cases .ph{aspect-ratio:16/10;border-radius:2px;margin-bottom:var(--s30)}.cases .item .l{font-size:.82rem;color:var(--ink-soft)}.cases .note{font-size:.78rem;color:var(--muted);margin-top:var(--s40)}
+.trust{text-align:center}.trust .marks{display:flex;gap:var(--s70);justify-content:center;align-items:center;flex-wrap:wrap;margin-top:var(--s50);opacity:.85}
+.trust .marks .m{font-family:var(--mincho);font-size:.9rem;color:var(--ink-soft);border:1px solid var(--line);border-radius:50%;width:96px;height:96px;display:grid;place-items:center;text-align:center;padding:.5em;line-height:1.4}
+.trust .logos{display:flex;gap:var(--s60);justify-content:center;flex-wrap:wrap;margin-top:var(--s50);font-family:var(--serif);font-size:1.1rem;color:var(--muted)}
+.b2b{background:var(--ink);color:var(--paper)}.b2b .inner{display:flex;gap:var(--s60);align-items:center;justify-content:space-between;flex-wrap:wrap}
+.b2b h2{font-family:var(--mincho);font-weight:500;font-size:1.6rem;color:var(--white)}.b2b p{font-size:.88rem;opacity:.8;max-width:34em;margin-top:.5em}
+.b2b .btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}.b2b .btn-ghost:hover{background:#fff;color:var(--ink)}
+.journal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s50)}.journal .ph{aspect-ratio:16/10;border-radius:2px;margin-bottom:var(--s30)}
+.journal .dt{font-family:var(--serif);font-style:italic;font-size:.82rem;color:var(--muted)}.journal .ti{font-family:var(--mincho);font-size:1.02rem;margin-top:.2em;line-height:1.6}
+.fan{background:var(--forest);color:var(--paper);text-align:center}.fan .eyebrow{color:#e9c9b6}.fan h2{font-family:var(--mincho);font-weight:500;color:#fff;font-size:clamp(1.5rem,2.6vw,2.1rem);margin:.3em 0 var(--s40)}
+.fan .iggrid{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;margin:var(--s50) 0}.fan .iggrid .ph{aspect-ratio:1/1}
+.fan .signup{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:var(--s40)}
+.fan input{padding:.85em 1.1em;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:2px;min-width:260px;font-family:var(--gothic)}.fan input::placeholder{color:rgba(255,255,255,.6)}
+.fan .btn-line{background:#06C755;color:#fff;font-weight:500}
+footer{background:var(--forest-deep);color:rgba(255,255,255,.8);padding:var(--s80) 0 var(--s50)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--s60)}
+footer .brand{color:#fff;font-size:1.5rem}footer .by{font-family:var(--serif);font-style:italic;font-size:.9rem;color:rgba(255,255,255,.6);margin-top:.4em}
+footer h4{font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:var(--s30)}
+footer ul{list-style:none;font-size:.86rem;line-height:2.1}footer a:hover{color:var(--terracotta)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:var(--s70);padding-top:var(--s40);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.76rem;color:rgba(255,255,255,.5)}.foot-bottom .x{color:var(--terracotta)}
+.specbar{background:var(--ink);color:var(--paper);font-size:.72rem;text-align:center;padding:.6em;letter-spacing:.1em;font-family:var(--serif);font-style:italic}
+@media(max-width:880px){.wrap{padding:0 var(--s50)}.nav{padding:1rem var(--s50)}.nav .menu,.nav .util{display:none}.burger{display:block}.sec{padding:var(--s80) 0}
+.story{grid-template-columns:1fr;gap:var(--s50)}.grid4{grid-template-columns:repeat(2,1fr);gap:var(--s40)}.materials,.collab-grid,.journal-grid{grid-template-columns:1fr}
+.scenes{grid-template-columns:1fr 1fr}.scenes .big{grid-row:auto;grid-column:span 2}.fan .iggrid{grid-template-columns:repeat(3,1fr)}.foot-grid{grid-template-columns:1fr 1fr;gap:var(--s50)}.hero{min-height:80vh}.b2b .inner{flex-direction:column;align-items:flex-start}}
+@media(max-width:480px){.grid4{grid-template-columns:1fr 1fr}.scenes{grid-template-columns:1fr}.scenes .big{grid-column:auto}.foot-grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="specbar">RERIGO — 制作版モック / Top  ·  Imagen4生成カット差し込み  ·  tokens from sorena39.com</div>
+<header><div class="nav"><a class="brand" href="#">RERIGO</a>
+<nav class="menu"><a href="#shop">Shop ▾</a><a href="#collab" style="color:var(--terracotta)">Collaborations</a><a href="#story">Story</a><a href="#material">Material</a><a href="#journal">Journal</a><a href="#company">Company</a></nav>
+<div class="util"><a>検索</a><a>アカウント</a><a class="line">LINE</a><a href="#shop" class="shopcta">商品を見る</a></div><span class="burger">≡</span></div></header>
+<section class="hero" style="background-image:url(img/hero.jpg)"><div class="hero-inner">
+<span class="eyebrow">apple, and what comes after.</span><h1>りんご、その後。</h1>
+<p class="sub">捨てられるはずだった信州のりんごが、手触りのある素材に生まれ変わる。地域の循環から生まれた RERIGO の物語。</p>
+<div class="cta-row"><a href="#shop" class="btn btn-primary">商品を見る</a><a href="#story" class="btn btn-ghost">ブランドの物語</a></div></div></section>
+<section class="sec"><div class="wrap"><div class="story">
+<div class="ph img" style="background-image:url(img/story.jpg)"></div>
+<div><span class="eyebrow green">the circulation of a region</span><h2 class="h-jp">使い切る、を<br>美しさに変える。</h2>
+<p class="lead">摘果や規格外で行き場をなくす信州のりんご。その“その後”を素材として引き受けることが、地域の循環の一部になる。RERIGO は、捨てない選択を暮らしの道具に変えるブランドです。</p>
+<div class="voice"><p>「もったいない、で終わらせたくなかった。<br>りんごのその後に、ちゃんと役割をつくりたかったんです。」</p>
+<span class="who">SORENA 代表 ・ 伊藤</span><br><a href="#story" class="more">伊藤の思いと、RERIGO のはじまりを読む →</a></div></div></div></div></section>
+<section class="sec shop" id="shop"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">shop</span><h2 class="h-jp">暮らしに迎える</h2></div><a href="#" class="seeall">すべての商品を見る →</a></div>
+<div class="grid4">
+<a class="card"><div class="ph img" style="background-image:url(img/prod_bag.jpg)"></div><span class="cat">Bag</span><div class="nm">アップルレザー トートバッグ</div><div class="pr">¥38,000</div><span class="badge">バイオマス60</span></a>
+<a class="card"><div class="ph" data-label="[ 財布・ケース ]"></div><span class="cat">Wallet</span><div class="nm">二つ折り ウォレット</div><div class="pr">¥19,800</div></a>
+<a class="card"><div class="ph img" style="background-image:url(img/prod_paper.jpg)"></div><span class="cat">Paper</span><div class="nm">りんごペーパー ノート</div><div class="pr">¥2,400</div><span class="badge">NEW</span></a>
+<a class="card"><div class="ph terra" data-label="[ ギフト ]"></div><span class="cat">Gift</span><div class="nm">ギフトボックス（小）</div><div class="pr">¥6,800</div></a></div></div></section>
+<section class="symbol"><div><div class="play">▶</div><h2 class="h-jp">りんごの断面が、素材になる。</h2><p>[ りんご断面 → レザー断面 モーフィング映像 / IG・Reels兼用 ]</p></div></section>
+<section class="sec" id="material"><div class="wrap"><div class="sec-head"><div><span class="eyebrow green">material</span><h2 class="h-jp">素材の物語</h2></div></div>
+<p class="lead">スペックではなく、手触りと出自から。RERIGO を形づくる三つの素材。</p><div class="materials">
+<div class="mat"><div class="ph img" style="background-image:url(img/mat_leather.jpg)"></div><h3>Apple Leather</h3><div class="jp h-jp">りんごの皮革</div><p>果実の搾りかすを生かした、しなやかで経年を楽しめる素材。使うほどに色が深まる。</p></div>
+<div class="mat"><div class="ph img" style="background-image:url(img/prod_paper.jpg)"></div><h3>Apple Paper</h3><div class="jp h-jp">りんごの紙</div><p>繊維を漉き込んだ、ぬくもりのある紙。名刺や文具に、土の記憶を残して。</p></div>
+<div class="mat"><div class="ph terra" data-label="[ Apple Fiber 質感 ]"></div><h3>Apple Fiber</h3><div class="jp h-jp">りんごの繊維</div><p>循環の起点となる原料。さまざまな製品・空間へと広がっていく。</p></div></div></div></section>
+<section class="sec usage"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">in your life</span><h2 class="h-jp">暮らしの中の rerigo</h2></div><a href="#" class="seeall">ギフトを探す →</a></div>
+<div class="scenes"><div class="ph img big" style="background-image:url(img/usage.jpg)"></div><div class="ph" data-label="[ デスク ]"></div><div class="ph terra" data-label="[ 贈りもの ]"></div><div class="ph" data-label="[ ペアで ]"></div><div class="ph green" data-label="[ 経年変化 ]"></div></div></div></section>
+<section class="sec collab" id="collab"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">collaborations</span><h2 class="h-jp">一緒に、つくる。<span class="en">collaborations</span></h2></div><a href="#" class="seeall">コラボ一覧 →</a></div>
+<p class="lead">作家やブランドと“一緒に作った”製品。買えるものとして、そして「ご一緒できます」という入口として。</p><div class="collab-grid">
+<a class="card"><div class="ph" data-label="[ IVY PRODUCTS × RERIGO ]"></div><span class="co">IVY PRODUCTS</span><div class="nm h-jp">レザーツール コラボライン</div><div class="pr" style="font-size:.9rem;color:var(--ink-soft)">¥24,000 〜</div></a>
+<a class="card"><div class="ph terra" data-label="[ 作家コラボ ]"></div><span class="co">CRAFT MAKER</span><div class="nm h-jp">一点物 ハンドメイド</div><div class="pr" style="font-size:.9rem;color:var(--ink-soft)">受注生産</div></a>
+<a class="card"><div class="ph green" data-label="[ コラボ募集 ]"></div><span class="co">OPEN</span><div class="nm h-jp">あなたのブランドと</div><div class="pr" style="font-size:.9rem;color:var(--ink-soft)">ご相談ください</div></a></div>
+<div class="band"><div><div class="t h-jp">ご一緒できます。</div><div class="d">素材から製品まで、ブランドや作家とのコラボレーションを歓迎しています。</div></div><a href="#" class="btn btn-ghost">コラボのご相談</a></div></div></section>
+<section class="sec cases"><div class="wrap"><div class="sec-head"><div><span class="eyebrow green">our material, widening</span><h2 class="h-jp">広がり</h2></div></div>
+<p class="lead">RERIGO の素材は、製品の枠を越えて、さまざまな現場で採用されています。</p><div class="row">
+<div class="item"><div class="ph" data-label="[ familiar ]"></div><div class="l">familiar｜製品への素材採用</div></div>
+<div class="item"><div class="ph green" data-label="[ 星野リゾート ]"></div><div class="l">星野リゾート｜空間・什器</div></div>
+<div class="item"><div class="ph terra" data-label="[ EV内装 ]"></div><div class="l">EV｜内装パネル</div></div>
+<div class="item"><div class="ph" data-label="[ 名刺・サイン ]"></div><div class="l">企業｜名刺・サイン</div></div></div>
+<p class="note">※ 導入事例＝素材が他社の製品・空間に採用された証。コラボ（一緒に作る）とは区別。</p></div></section>
+<section class="sec trust"><div class="wrap"><span class="eyebrow green">trusted</span><div class="marks"><div class="m h-jp">バイオマスマーク 60</div><div class="m h-jp">地域循環 認証</div></div>
+<div class="logos"><span>MEDIA</span><span>PARTNERS</span><span>AWARD</span></div></div></section>
+<section class="sec b2b" id="company"><div class="wrap"><div class="inner"><div><span class="eyebrow" style="color:#e9c9b6">for business</span><h2 class="h-jp">法人・OEM・空間導入のご相談</h2>
+<p>サンプルブックのご請求、素材のOEM、空間への導入など。事業に関する詳しいご相談は、企業サイト sorena39.com で承っています。</p></div><a href="https://sorena39.com" class="btn btn-ghost">sorena39.com へ →</a></div></div></section>
+<section class="sec journal" id="journal"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">journal</span><h2 class="h-jp">ジャーナル</h2></div><a href="#" class="seeall">記事一覧 →</a></div><div class="journal-grid">
+<a class="card"><div class="ph" data-label="[ コラボ告知 ]"></div><div class="dt">News — 2026.06</div><div class="ti h-jp">IVY PRODUCTS とのコラボラインを発表しました</div></a>
+<a class="card"><div class="ph green" data-label="[ 舞台裏 ]"></div><div class="dt">Story — 2026.05</div><div class="ti h-jp">長野・素材撮影の舞台裏から</div></a>
+<a class="card"><div class="ph terra" data-label="[ メディア ]"></div><div class="dt">Media — 2026.04</div><div class="ti h-jp">雑誌掲載：循環から生まれるものづくり</div></a></div></div></section>
+<section class="sec fan"><div class="wrap"><span class="eyebrow">@ringo_leather</span><h2 class="h-jp">りんごの、その後を追いかける。</h2>
+<div class="iggrid"><div class="ph img" style="background-image:url(img/usage.jpg)"></div><div class="ph img" style="background-image:url(img/mat_leather.jpg)"></div><div class="ph img" style="background-image:url(img/story.jpg)"></div><div class="ph img" style="background-image:url(img/prod_bag.jpg)"></div><div class="ph img" style="background-image:url(img/prod_paper.jpg)"></div><div class="ph img" style="background-image:url(img/hero.jpg)"></div></div>
+<div class="signup"><input type="email" placeholder="メールアドレス（Newsletter）"><a href="#" class="btn btn-primary">登録する</a><a href="#" class="btn btn-line">LINEで友だち追加</a></div></div></section>
+<footer><div class="wrap"><div class="foot-grid"><div><div class="brand">RERIGO</div><div class="by">— by SORENA</div>
+<p style="font-size:.84rem;margin-top:var(--s40);color:rgba(255,255,255,.6);max-width:24em">りんご、その後。信州の地域循環から生まれる素材ブランド。</p></div>
+<div><h4>Shop</h4><ul><li><a>バッグ</a></li><li><a>財布・ケース</a></li><li><a>りんごペーパー・文具</a></li><li><a>ギフト</a></li><li><a>すべて</a></li></ul></div>
+<div><h4>Discover</h4><ul><li><a>Collaborations</a></li><li><a>Story</a></li><li><a>Material</a></li><li><a>Journal</a></li></ul></div>
+<div><h4>About / Business</h4><ul><li><a>Company（会社概要）</a></li><li><a href="https://sorena39.com">法人の方へ → sorena39.com</a></li><li><a>お問い合わせ</a></li><li><a>LINE</a></li></ul></div></div>
+<div class="foot-bottom"><span>© 2026 SORENA Inc. / RERIGO</span><span>企業サイト：<a href="https://sorena39.com" class="x">sorena39.com</a>　|　特定商取引法　|　プライバシー　|　利用規約</span></div></div></footer>
+</body></html>
