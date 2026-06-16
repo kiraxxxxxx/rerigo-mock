@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SHOP — RERIGO ｜ りんご・その後の物販</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@0;1&family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFFFF;--ink:#1c1c1c;--ink-2:#303030;--soft:#595959;--apple:#760016;--apple-deep:#5C0011;--coral:#F94C43;--line:#E0E0E0;--paper:#FAF8F5;
+--s30:.67rem;--s40:1rem;--s50:1.5rem;--s60:2.25rem;--s70:3.38rem;--s80:5.06rem;--s90:7.2rem;
+--mincho:"Shippori Mincho",serif;--gothic:"Zen Kaku Gothic New",sans-serif;--serif:"Cormorant Garamond",serif;--maxw:1280px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--gothic);background:var(--white);color:var(--ink-2);line-height:1.8;font-weight:400;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s60)}
+.eyebrow{font-family:var(--gothic);font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--apple)}
+.btn{display:inline-block;font-family:var(--gothic);font-weight:700;font-size:.86rem;letter-spacing:.1em;padding:1em 2.4em;transition:.2s;border:1px solid transparent}
+.btn-primary{background:var(--apple);color:#fff}.btn-primary:hover{background:var(--apple-deep)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:#fff}
+.ph{position:relative;overflow:hidden;background:#ddd6cc;background-size:cover;background-position:center;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center}
+.ph::after{content:attr(data-label);font-family:var(--gothic);font-weight:500;font-size:.74rem;letter-spacing:.1em;opacity:.85;padding:1em;color:#444}
+.ph.img::after{content:""}.ph.red{background:var(--apple)}.ph.dk{background:var(--ink)}
+.tagbadge{display:inline-block;font-family:var(--gothic);font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3em .7em;background:var(--apple);color:#fff}
+.specbar{background:var(--ink);color:#fff;font-size:.7rem;text-align:center;padding:.55em;letter-spacing:.12em;font-family:var(--gothic);font-weight:500}
+/* header */
+header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--ink)}
+.nav{display:flex;align-items:center;gap:var(--s50);max-width:var(--maxw);margin:0 auto;padding:1rem var(--s60)}
+.brand{font-family:var(--mincho);font-weight:800;font-size:1.55rem;letter-spacing:.18em;color:var(--ink)}
+.nav .menu{display:flex;gap:var(--s50);font-size:.82rem;font-weight:500}.nav .menu a:hover{color:var(--apple)}.nav .menu a.on{color:var(--apple)}
+.nav .util{margin-left:auto;display:flex;align-items:center;gap:1.1rem;font-size:.82rem;font-weight:500}.nav .util .line{color:var(--apple)}
+.nav .shopcta{background:var(--apple);color:#fff;padding:.6em 1.4em;font-weight:700;letter-spacing:.08em}
+.burger{display:none;margin-left:auto;font-size:1.4rem}
+/* page head */
+.pagehead{border-bottom:1px solid var(--ink);padding:var(--s70) 0 var(--s60)}
+.pagehead .crumb{font-family:var(--gothic);font-size:.72rem;font-weight:500;letter-spacing:.1em;color:var(--soft);margin-bottom:var(--s40)}
+.pagehead .crumb .x{color:var(--apple)}
+.pagehead h1{font-family:var(--mincho);font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;letter-spacing:.02em;color:var(--ink)}
+.pagehead h1 .dot{color:var(--apple)}
+.pagehead .en{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--soft);margin-top:var(--s40)}
+.pagehead .lead{color:var(--soft);font-size:.95rem;max-width:38em;margin-top:var(--s40)}
+/* filter bar */
+.filterbar{display:flex;align-items:center;justify-content:space-between;gap:var(--s40);flex-wrap:wrap;padding:var(--s50) 0;border-bottom:1px solid var(--line)}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{font-family:var(--gothic);font-size:.78rem;font-weight:700;letter-spacing:.06em;padding:.5em 1.2em;border:1px solid var(--ink);color:var(--ink);cursor:pointer;transition:.2s;background:#fff}
+.chip:hover,.chip.on{background:var(--ink);color:#fff}
+.chip.on{background:var(--apple);border-color:var(--apple)}
+.sortwrap{font-size:.8rem;font-weight:500;color:var(--soft);display:flex;align-items:center;gap:.6rem}
+.sortwrap select{font-family:var(--gothic);font-size:.8rem;border:1px solid var(--line);padding:.5em 1em;background:#fff;color:var(--ink)}
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:0 0 var(--s80)}
+.card{border-right:1px solid var(--ink);border-top:1px solid var(--ink);padding:0 0 var(--s50);transition:.25s;position:relative}
+.card:hover{background:var(--paper)}
+.card .ph{aspect-ratio:1/1;border-bottom:1px solid var(--ink);margin-bottom:var(--s40)}
+.card .in{padding:0 var(--s40)}
+.card .cat{font-family:var(--gothic);font-weight:700;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--apple)}
+.card .nm{font-family:var(--mincho);font-weight:600;font-size:1.05rem;margin:.2em 0;color:var(--ink);line-height:1.5}
+.card .pr{font-family:var(--gothic);font-weight:700;font-size:1rem;color:var(--ink)}.card .pr small{font-weight:400;color:var(--soft);font-size:.7rem}
+.card .bd{margin-top:.5em;min-height:1.6em}
+.card .soldout{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:.64rem;font-weight:700;letter-spacing:.1em;padding:.4em .8em}
+/* lookbook strip */
+.look{background:var(--paper);padding:var(--s80) 0}
+.look .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s40);margin-bottom:var(--s60);flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:var(--s40)}
+.look h2{font-family:var(--mincho);font-weight:700;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--ink)}
+.look .seeall{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--apple);text-transform:uppercase}
+.look .scenes{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4px}.look .ph{min-height:240px}.look .big{grid-row:span 2}
+/* help band */
+.help{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.help .inner{display:flex;gap:var(--s60);align-items:center;justify-content:space-between;flex-wrap:wrap;padding:var(--s70) 0}
+.help h2{font-family:var(--mincho);font-weight:700;font-size:1.5rem;color:var(--ink)}
+.help p{font-size:.88rem;color:var(--soft);max-width:34em;margin-top:.4em}
+/* footer */
+footer{background:var(--ink);color:rgba(255,255,255,.78);padding:var(--s80) 0 var(--s50)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--s60)}
+footer .brand{color:#fff}footer .by{font-family:var(--serif);font-style:italic;color:rgba(255,255,255,.6);margin-top:.3em}
+footer h4{font-family:var(--gothic);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--apple);margin-bottom:var(--s30)}
+footer ul{list-style:none;font-size:.86rem;line-height:2.1}footer a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.16);margin-top:var(--s70);padding-top:var(--s40);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.76rem;color:rgba(255,255,255,.5)}.foot-bottom .x{color:var(--apple)}
+@media(max-width:880px){.wrap{padding:0 var(--s50)}.nav{padding:.9rem var(--s50)}.nav .menu,.nav .util{display:none}.burger{display:block}
+.grid{grid-template-columns:1fr 1fr}.look .scenes{grid-template-columns:1fr 1fr}.look .big{grid-row:auto;grid-column:span 2}.foot-grid{grid-template-columns:1fr 1fr;gap:var(--s50)}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="specbar">RERIGO — 制作版モック / SHOP（商品一覧） ： 白・りんご色#760016・黒　·　画像=Imagen4プレースホルダ　·　商品名・価格は仮</div>
+<header><div class="nav"><a class="brand" href="index.html">RERIGO</a>
+<nav class="menu"><a href="shop.html" class="on">SHOP</a><a href="#" style="color:var(--apple)">COLLABORATIONS</a><a href="story.html">STORY</a><a href="#">MATERIAL</a><a href="#">JOURNAL</a><a href="#">COMPANY</a></nav>
+<div class="util"><a>検索</a><a>アカウント</a><a class="line">LINE</a><a href="#" class="shopcta">カート (0)</a></div><span class="burger">≡</span></div></header>
+
+<section class="pagehead"><div class="wrap">
+<div class="crumb">RERIGO　<span class="x">/</span>　SHOP</div>
+<h1>暮らしに迎える<span class="dot">。</span></h1>
+<div class="en">The shop — apple leather, reborn in Shinshu.</div>
+<p class="lead">行き場を失っていた信州のりんごが、暮らしの道具へ。すべての品は、規格外として弾かれた果実を素材へつくり直したものです。</p>
+</div></section>
+
+<section class="wrap">
+<div class="filterbar">
+<div class="filters">
+<span class="chip on">すべて</span><span class="chip">バッグ</span><span class="chip">財布・小物</span><span class="chip">ペーパー</span><span class="chip">ギフト</span><span class="chip">コラボ</span>
+</div>
+<div class="sortwrap">並び替え
+<select><option>おすすめ順</option><option>新着順</option><option>価格が安い順</option><option>価格が高い順</option></select>
+</div>
+</div>
+
+<div class="grid">
+<a class="card" href="product-tote.html"><div class="ph img" data-label="PRODUCT トートバッグ" style="background-image:url(img/prod_bag.jpg)"></div><div class="in"><span class="cat">Bag</span><div class="nm">アップルレザー トートバッグ</div><div class="pr">¥38,000 <small>税込</small></div><div class="bd"><span class="tagbadge">バイオマス60</span></div></div></a>
+<a class="card"><div class="ph" data-label="PRODUCT 二つ折りウォレット"></div><div class="in"><span class="cat">Wallet</span><div class="nm">二つ折り ウォレット</div><div class="pr">¥19,800 <small>税込</small></div><div class="bd"></div></div></a>
+<a class="card"><div class="ph img" data-label="PRODUCT ノート" style="background-image:url(img/prod_paper.jpg)"></div><div class="in"><span class="cat">Paper</span><div class="nm">りんごペーパー ノート</div><div class="pr">¥2,400 <small>税込</small></div><div class="bd"><span class="tagbadge">NEW</span></div></div></a>
+<a class="card"><div class="ph red" data-label="PRODUCT ギフトボックス"></div><div class="in"><span class="cat">Gift</span><div class="nm">ギフトボックス（小）</div><div class="pr">¥6,800 <small>税込</small></div><div class="bd"></div></div></a>
+<a class="card"><div class="ph dk" data-label="PRODUCT カードケース"></div><div class="in"><span class="cat">Wallet</span><div class="nm">カードケース</div><div class="pr">¥9,800 <small>税込</small></div><div class="bd"></div></div></a>
+<a class="card"><div class="ph" data-label="PRODUCT キーホルダー"></div><div class="in"><span class="cat">Goods</span><div class="nm">レザー キーホルダー</div><div class="pr">¥3,800 <small>税込</small></div><div class="bd"></div></div></a>
+<a class="card"><div class="soldout">SOLD OUT</div><div class="ph" data-label="PRODUCT ミニトート"></div><div class="in"><span class="cat">Bag</span><div class="nm">ミニトート</div><div class="pr">¥24,000 <small>税込</small></div><div class="bd"></div></div></a>
+<a class="card"><div class="ph red" data-label="COLLAB IVY × RERIGO"></div><div class="in"><span class="cat">Collab</span><div class="nm">レザーツール コラボライン</div><div class="pr">¥24,000〜</div><div class="bd"><span class="tagbadge">コラボ</span></div></div></a>
+</div>
+</section>
+
+<section class="look"><div class="wrap">
+<div class="sec-head"><h2>暮らしの中の rerigo</h2><a href="#" class="seeall">使い方を見る →</a></div>
+<div class="scenes"><div class="ph img big" style="background-image:url(img/usage.jpg)"></div><div class="ph dk" data-label="DESK"></div><div class="ph red" data-label="GIFT"></div><div class="ph dk" data-label="PAIR"></div><div class="ph dk" data-label="経年変化"></div></div>
+</div></section>
+
+<section class="help"><div class="wrap"><div class="inner">
+<div><span class="eyebrow">Guide</span><h2>お選びに迷ったら。</h2><p>ギフト用途や素材の違い、お手入れについて。はじめての方に向けた案内をご用意しています。</p></div>
+<a href="#" class="btn btn-ghost">ギフトガイドを見る →</a>
+</div></div></section>
+
+<footer><div class="wrap"><div class="foot-grid">
+<div><div class="brand" style="font-family:var(--mincho);font-weight:800;font-size:1.4rem;letter-spacing:.16em">RERIGO</div><div class="by">— by SORENA</div>
+<p style="font-size:.84rem;margin-top:var(--s40);color:rgba(255,255,255,.6);max-width:24em">りんご、その後。信州の地域循環から生まれる素材ブランド。</p></div>
+<div><h4>Shop</h4><ul><li><a>バッグ</a></li><li><a>財布・ケース</a></li><li><a>りんごペーパー・文具</a></li><li><a>ギフト</a></li></ul></div>
+<div><h4>Discover</h4><ul><li><a>Collaborations</a></li><li><a>Story</a></li><li><a>Material</a></li><li><a>Journal</a></li></ul></div>
+<div><h4>About</h4><ul><li><a>Company</a></li><li><a href="https://sorena39.com">法人の方へ → sorena39.com</a></li><li><a>お問い合わせ</a></li><li><a>LINE</a></li></ul></div>
+</div>
+<div class="foot-bottom"><span>© 2026 SORENA Inc. / RERIGO</span><span>企業サイト：<a href="https://sorena39.com" class="x">sorena39.com</a>　|　特商法　|　プライバシー　|　利用規約</span></div>
+</div></footer>
+</body></html>
